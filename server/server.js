@@ -19,6 +19,17 @@ todo.save().then((doc)=>{
 })
 });
 
+app.get('/todos',(req,res)=>{
+  Todo.find().then((todos)=>{
+    res.send({todos});
+  });
+},(e)=>{
+  res.staus(400).send(e);
+});
+
+
+
+
 app.listen(3000,(err)=>{
   if(err){
    console.log(err);
